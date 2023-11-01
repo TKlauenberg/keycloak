@@ -1,0 +1,2 @@
+# Keycloak
+This is a keycloak docker image with an optimized configuration as described in the [keycloak documentation](https://www.keycloak.org/server/containers#_writing_your_optimized_keycloak_dockerfile).
