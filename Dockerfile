@@ -19,6 +19,7 @@ FROM quay.io/keycloak/keycloak:22.0.5
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 EXPOSE 8443
+EXPOSE 8080
 
 
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
