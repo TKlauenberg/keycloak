@@ -1,0 +1,9 @@
+{
+  "mappers": [
+    {
+      "name": "kubernetes-prefix-mapper",
+      "fileName": "kubernetes-prefix-mapper.js",
+      "description": "Mapper to add kubernetes prefix to the username ('oidc:')"
+    }
+  ]
+}

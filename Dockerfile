@@ -1,9 +1,14 @@
-FROM quay.io/keycloak/keycloak:25.0.1 as builder
+FROM ubuntu:24.04 as providerBuilder
+RUN apt-get update && apt-get install -y zip
+COPY ./providers /providers
+RUN /providers/build.sh
+
+FROM quay.io/keycloak/keycloak:25.0.1 AS builder
 
 # Enable health and metrics support
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
-# Configure a cache provider
+# Configure a cache provider (not used for building but default for runtime!)
 ENV KC_CACHE=ispn
 ENV KC_CACHE_STACK=kubernetes
 
@@ -12,6 +17,9 @@ ENV KC_DB=postgres
 
 # configure features
 ENV KC_FEATURES="docker,scripts"
+
+# add providers
+COPY --from=providerBuilder ./output /opt/keycloak/providers
 
 # TODO: Add your custom theme here
 
