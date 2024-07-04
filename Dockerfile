@@ -10,6 +10,9 @@ ENV KC_CACHE_STACK=kubernetes
 # Configure a database vendor
 ENV KC_DB=postgres
 
+# configure features
+ENV KC_FEATURES="docker,scripts"
+
 # TODO: Add your custom theme here
 
 WORKDIR /opt/keycloak
