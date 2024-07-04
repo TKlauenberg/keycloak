@@ -5,7 +5,8 @@ mkdir /output
 for provider in /providers/*; do
   if [ -d "$provider" ]; then
     provider_name=$(basename "$provider")
-    zip -r "$provider_name.jar" "$provider"
+    cd "$provider"
+    zip -r "$provider_name.jar" ./
     mv "$provider_name.jar" /output/
   fi
 done
