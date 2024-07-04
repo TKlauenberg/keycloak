@@ -13,7 +13,7 @@ ENV KC_DB=postgres
 # TODO: Add your custom theme here
 
 WORKDIR /opt/keycloak
-RUN /opt/keycloak/bin/kc.sh build --features="docker,scripts"
+RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:25.0.1
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
