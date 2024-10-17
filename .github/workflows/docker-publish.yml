@@ -14,7 +14,7 @@ on:
   pull_request:
 
 env:
-  IMAGE_NAME: fritzbox-dyndns
+  IMAGE_NAME: keycloak
 
 jobs:
   push:
