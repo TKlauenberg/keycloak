@@ -19,7 +19,7 @@ ENV KC_DB=postgres
 ENV KC_FEATURES="docker,scripts"
 
 # add providers
-COPY --from=providerBuilder ./output /opt/keycloak/providers
+COPY --from=provider-builder ./output /opt/keycloak/providers
 
 # TODO: Add your custom theme here
 
